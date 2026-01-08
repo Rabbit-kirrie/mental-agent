@@ -16,7 +16,7 @@ sendBtn.onclick = async function() {
     appendMessage('user', text);
     userInput.value = '';
     appendMessage('agent', '思考中...');
-    const res = await fetch('/api/query', {
+     const res = await fetch('/api/chat', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({text})
