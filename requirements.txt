@@ -1,0 +1,7 @@
+Flask
+Flask-Cors
+SQLAlchemy
+alembic
+requests
+python-dotenv
+gunicorn

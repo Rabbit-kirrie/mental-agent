@@ -1,0 +1,1 @@
+如需数据库迁移，可用 Alembic/Flask-Migrate 工具。
