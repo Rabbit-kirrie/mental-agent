@@ -1,4 +1,3 @@
-
 from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
 from .models import db, Message, init_db
@@ -6,9 +5,7 @@ from .deepseek_client import call_deepseek
 from .config import Config
 import os
 
-import os
-FRONTEND_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '../frontend'))
-app = Flask(__name__, static_folder=None)
+app = Flask(__name__)
 CORS(app)
 app.config.from_object(Config)
 init_db(app)
@@ -26,8 +23,8 @@ def query():
     db.session.commit()
     return jsonify({'reply': reply})
 
-
 # 静态文件和首页路由
+FRONTEND_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '../frontend'))
 @app.route('/')
 def index():
     return send_from_directory(FRONTEND_DIR, 'index.html')
